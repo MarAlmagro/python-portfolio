@@ -1,6 +1,10 @@
 # Python Full-Stack Portfolio
 
-This portfolio demonstrates how the same business logic evolves across three Python web frameworks: **Flask**, **Django** and **FastAPI**.
+This portfolio demonstrates the evolution of a learning platform project across three frameworks.: **Flask**, **Django** and **FastAPI**.
+
+🧠 **What is Skillshare?**
+
+The app — Skillshare — is a simplified educational portal where students can connect with mentors, view available courses, and manage their sessions.
 
 🗃️ **Project Phases:**
 1. Flask monolith (basic auth, MVC, SQLite)
