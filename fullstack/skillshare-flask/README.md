@@ -1,5 +1,8 @@
 # Skillshare (Flask Version)
 
+🧠 **What is Skillshare?**
+Skillshare is a learning platform prototype where users register as students or mentors. It includes user authentication, session creation, and a simple interface to explore learning opportunities.
+
 🌱 This is the **Flask version** of the Skillshare app. It focuses on building a monolithic structure using SQLite for development and PostgreSQL for production.
 
 🔧 **Current Stack:**
