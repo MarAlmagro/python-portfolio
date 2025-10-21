@@ -1,6 +1,6 @@
 # Skillshare (Flask Version)
 
-This project is part of a full-stack portfolio designed to showcase the evolution of a business logic idea across three Python frameworks: **Flask**, **FastAPI**, and **Django**.
+🌱 This is the **Flask version** of the Skillshare app. It focuses on building a monolithic structure using SQLite for development and PostgreSQL for production.
 
 🔧 **Current Stack:**
 - Python 3.13+
@@ -22,14 +22,9 @@ This project is part of a full-stack portfolio designed to showcase the evolutio
 - Modular structure (`Blueprints`)
 - Tests with `unittest` or `pytest`
 
-🗃️ **Project Phases:**
-1. Flask monolith (basic auth, MVC, SQLite)
-2. FastAPI + PostgreSQL (API First design)
-3. Django (monolith, TDD, admin)
-
 📁 **Directory Structure (Flask version):**
-skillshare/
-│
+<pre lang="markdown"><code>
+skillshare/ 
 ├── app/
 │ ├── init.py
 │ ├── models.py
@@ -39,28 +34,36 @@ skillshare/
 │ │ └── auth_routes.py
 │ ├── templates/
 │ └── static/
-│
 ├── tests/
 ├── .env
 ├── config.py
 ├── run.py
 ├── requirements.txt
 └── README.md
+</code></pre>
 
 
 🧪 **Testing**
-Use `pytest` or `unittest` depending on your setup:
-pytest tests/
 
-🚀 **TRun the project**
+Use `pytest` or `unittest` depending on your setup:
+``` bash
+pytest tests/
+```
+
+🚀 **Run the project**
+``` bash
 flask run
+```
 
 🔐 **Environment Variables (.env)**
+<pre lang="markdown"><code>
 FLASK_APP=run.py
 FLASK_ENV=development
 SECRET_KEY=your_secret_key
 DATABASE_URL=sqlite:///skillshare.db
+</code></pre>
 
 🔒 **License**
-This project is licensed under the MIT License. See the LICENSE
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE)
 file for details.
