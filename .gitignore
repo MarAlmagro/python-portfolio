@@ -1,0 +1,42 @@
+# 🧠 Global .gitignore for Python Portfolio
+
+# macOS / Linux / Windows system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.log
+
+# Python virtual environments (in case they are created in root)
+env/
+venv/
+.venv/
+ENV/
+
+# Bytecode / cache
+__pycache__/
+*.py[cod]
+
+# VSCode / PyCharm / other IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node.js or JS tools (if you add a front-end later)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+
+# GitHub-specific
+*.swp
+*.bak
+*.tmp
+
+# Global .env (if you ever use one in root)
+.env
