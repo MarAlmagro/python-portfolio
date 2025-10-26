@@ -1,50 +1,53 @@
-# ⚙️ Python & Flask-specific ignores
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Virtual environments
-venv/
-env/
+# Virtual environment
 .venv/
+env/
 ENV/
+venv/
+pip-selfcheck.json
 
-# Environment variables
-.env
-*.env
-
-# SQLite / local DBs
-*.sqlite3
-*.db
-
-# Flask instance folder (if used)
-instance/
-
-# Logs and debug
+# Django stuff
 *.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
 
-# Flask-specific
-*.pid
+# dotenv environment variables
+.env
+.env.*
 
-# Coverage / testing
-.coverage
-htmlcov/
-.tox/
-.pytest_cache/
-
-# Build artifacts
-build/
-dist/
-*.egg-info/
-
-# IDE/editor files
+# VS Code settings
 .vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
 
-# OS files
+# Static files (collected)
+staticfiles/
+static_root/
+
+# Media files (user uploads, optional)
+media/
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.coverage.*
+
+# Testing
+.pytest_cache/
+coverage.xml
+.cache
+nosetests.xml
+test-results/
+
+# macOS
 .DS_Store
+
+# Windows
 Thumbs.db
+ehthumbs.db
