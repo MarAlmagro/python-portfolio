@@ -10,7 +10,7 @@ from .models import (
 
 LIST_TEMPLATE = 'delights/list.html'
 DETAIL_TEMPLATE = 'delights/detail.html'
-
+DELETE_TEMPLATE = 'delights/confirm_delete.html'
 
 class BaseDetailView(DetailView):
     """Base detail view that excludes the ID field and sets a dynamic title."""
@@ -56,7 +56,7 @@ class DishUpdateView(UpdateView):
 
 class DishDeleteView(DeleteView):
     model = Dish
-    template_name = 'dish_confirm_delete.html'
+    template_name = DELETE_TEMPLATE
     success_url = reverse_lazy('dish_list')
 
 
@@ -85,7 +85,7 @@ class MenuUpdateView(UpdateView):
 
 class MenuDeleteView(DeleteView):
     model = Menu
-    template_name = 'menu_confirm_delete.html'
+    template_name = DELETE_TEMPLATE
     success_url = reverse_lazy('menu_list')
 
 
@@ -114,7 +114,7 @@ class CategoryUpdateView(UpdateView):
 
 class CategoryDeleteView(DeleteView):
     model = Category
-    template_name = 'category_confirm_delete.html'
+    template_name = DELETE_TEMPLATE
     success_url = reverse_lazy('category_list')
 
 
@@ -143,7 +143,7 @@ class IngredientUpdateView(UpdateView):
 
 class IngredientDeleteView(DeleteView):
     model = Ingredient
-    template_name = 'ingredient_confirm_delete.html'
+    template_name = DELETE_TEMPLATE
     success_url = reverse_lazy('ingredient_list')
 
 
@@ -172,7 +172,7 @@ class TagUpdateView(UpdateView):
 
 class TagDeleteView(DeleteView):
     model = Tag
-    template_name = 'tag_confirm_delete.html'
+    template_name = DELETE_TEMPLATE
     success_url = reverse_lazy('tag_list')
 
 
@@ -201,5 +201,5 @@ class ChefUpdateView(UpdateView):
 
 class ChefDeleteView(DeleteView):
     model = Chef
-    template_name = 'chef_confirm_delete.html'
+    template_name = DELETE_TEMPLATE
     success_url = reverse_lazy('chef_list')
