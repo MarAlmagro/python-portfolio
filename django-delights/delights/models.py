@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Categorizes dishes (e.g., starter, main course, dessert)
@@ -7,7 +8,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-
+    
+    def get_absolute_url(self):
+        return reverse('category_detail', args=[str(self.id)])
+    
 
 # Chef who can prepare one or more dishes
 class Chef(models.Model):
@@ -15,6 +19,9 @@ class Chef(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('chef_detail', args=[str(self.id)])
 
 
 # Additional classification for dishes (e.g., vegan, spicy)
@@ -23,6 +30,9 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+        
+    def get_absolute_url(self):
+        return reverse('tag_detail', args=[str(self.id)])
 
 
 # Ingredient used in dishes
@@ -31,6 +41,9 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return self.name
+        
+    def get_absolute_url(self):
+        return reverse('ingredient_detail', args=[str(self.id)])
 
 
 # Allergen linked to one or more ingredients
@@ -40,6 +53,9 @@ class Allergen(models.Model):
 
     def __str__(self):
         return self.name
+        
+    def get_absolute_url(self):
+        return reverse('allergen_detail', args=[str(self.id)])
 
 
 # Represents a dish or recipe
@@ -55,6 +71,9 @@ class Dish(models.Model):
 
     def __str__(self):
         return self.name
+        
+    def get_absolute_url(self):
+        return reverse('dish_detail', args=[str(self.id)])
 
 
 # Collection of dishes (e.g., daily menu)
@@ -64,6 +83,9 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.name
+        
+    def get_absolute_url(self):
+        return reverse('menu_detail', args=[str(self.id)])
 
 
 # Customer who places an order
@@ -73,6 +95,9 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+        
+    def get_absolute_url(self):
+        return reverse('customer_detail', args=[str(self.id)])
 
 
 # Order placed by a customer
@@ -82,6 +107,9 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Order #{self.id} - {self.customer.name}"
+        
+    def get_absolute_url(self):
+        return reverse('corder_detail', args=[str(self.id)])
 
 
 # Single line item within an order
@@ -92,3 +120,6 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} x {self.dish.name}"
+        
+    def get_absolute_url(self):
+        return reverse('orderitem_detail', args=[str(self.id)])

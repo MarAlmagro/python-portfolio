@@ -8,12 +8,14 @@ from .models import (
     Tag, Chef
 )
 
+LIST_TEMPLATE = 'list.html'
+
 # ----------- Dish Views -----------
 
 class DishListView(ListView):
     model = Dish
-    template_name = 'dish_list.html'
-    context_object_name = 'dishes'
+    template_name = LIST_TEMPLATE
+    extra_context = {'title': 'Dishes'}
 
 class DishDetailView(DetailView):
     model = Dish
@@ -41,8 +43,8 @@ class DishDeleteView(DeleteView):
 
 class MenuListView(ListView):
     model = Menu
-    template_name = 'menu_list.html'
-    context_object_name = 'menus'
+    template_name = LIST_TEMPLATE
+    extra_context = {'title': 'Menus'}
 
 class MenuDetailView(DetailView):
     model = Menu
@@ -70,8 +72,8 @@ class MenuDeleteView(DeleteView):
 
 class CategoryListView(ListView):
     model = Category
-    template_name = 'category_list.html'
-    context_object_name = 'categories'
+    template_name = LIST_TEMPLATE
+    extra_context = {'title': 'Categories'}
 
 class CategoryDetailView(DetailView):
     model = Category
@@ -99,8 +101,8 @@ class CategoryDeleteView(DeleteView):
 
 class IngredientListView(ListView):
     model = Ingredient
-    template_name = 'ingredient_list.html'
-    context_object_name = 'ingredients'
+    template_name = LIST_TEMPLATE
+    extra_context = {'title': 'Ingredients'}
 
 class IngredientDetailView(DetailView):
     model = Ingredient
@@ -128,8 +130,8 @@ class IngredientDeleteView(DeleteView):
 
 class TagListView(ListView):
     model = Tag
-    template_name = 'tag_list.html'
-    context_object_name = 'tags'
+    template_name = LIST_TEMPLATE
+    extra_context = {'title': 'Tags'}
 
 class TagDetailView(DetailView):
     model = Tag
@@ -157,8 +159,8 @@ class TagDeleteView(DeleteView):
 
 class ChefListView(ListView):
     model = Chef
-    template_name = 'chef_list.html'
-    context_object_name = 'chefs'
+    template_name = LIST_TEMPLATE
+    extra_context = {'title': 'Chefs'}
 
 class ChefDetailView(DetailView):
     model = Chef

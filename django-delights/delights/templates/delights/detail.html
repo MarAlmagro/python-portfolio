@@ -1,0 +1,12 @@
+{% extends "delights/base.html" %}
+
+{% block title %}{{ object }}{% endblock %}
+
+{% block content %}
+  <h2>Detail: {{ object }}</h2>
+  <ul>
+    {% for field in object._meta.fields %}
+      <li><strong>{{ field.verbose_name }}:</strong> {{ object|get_attr:field.name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
