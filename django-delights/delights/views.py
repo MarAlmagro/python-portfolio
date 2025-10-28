@@ -8,7 +8,28 @@ from .models import (
     Tag, Chef
 )
 
-LIST_TEMPLATE = 'list.html'
+LIST_TEMPLATE = 'delights/list.html'
+DETAIL_TEMPLATE = 'delights/detail.html'
+
+
+class BaseDetailView(DetailView):
+    """Base detail view that excludes the ID field and sets a dynamic title."""
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        obj = self.object
+
+        # Exclude the object's ID field so it doesn't appear in the template
+        fields = [
+            (field.verbose_name, getattr(obj, field.name))
+            for field in obj._meta.fields
+            if field.name != "id"
+        ]
+
+        context["fields"] = fields
+        context["title"] = f"{obj._meta.verbose_name.title()}: {obj}"
+        return context
+
 
 # ----------- Dish Views -----------
 
@@ -17,10 +38,10 @@ class DishListView(ListView):
     template_name = LIST_TEMPLATE
     extra_context = {'title': 'Dishes'}
 
-class DishDetailView(DetailView):
+class DishDetailView(BaseDetailView):
     model = Dish
-    template_name = 'dish_detail.html'
-
+    template_name = DETAIL_TEMPLATE
+    
 class DishCreateView(CreateView):
     model = Dish
     fields = '__all__'
@@ -46,9 +67,9 @@ class MenuListView(ListView):
     template_name = LIST_TEMPLATE
     extra_context = {'title': 'Menus'}
 
-class MenuDetailView(DetailView):
+class MenuDetailView(BaseDetailView):
     model = Menu
-    template_name = 'menu_detail.html'
+    template_name = DETAIL_TEMPLATE
 
 class MenuCreateView(CreateView):
     model = Menu
@@ -75,9 +96,9 @@ class CategoryListView(ListView):
     template_name = LIST_TEMPLATE
     extra_context = {'title': 'Categories'}
 
-class CategoryDetailView(DetailView):
+class CategoryDetailView(BaseDetailView):
     model = Category
-    template_name = 'category_detail.html'
+    template_name = DETAIL_TEMPLATE
 
 class CategoryCreateView(CreateView):
     model = Category
@@ -104,9 +125,9 @@ class IngredientListView(ListView):
     template_name = LIST_TEMPLATE
     extra_context = {'title': 'Ingredients'}
 
-class IngredientDetailView(DetailView):
+class IngredientDetailView(BaseDetailView):
     model = Ingredient
-    template_name = 'ingredient_detail.html'
+    template_name = DETAIL_TEMPLATE
 
 class IngredientCreateView(CreateView):
     model = Ingredient
@@ -133,9 +154,9 @@ class TagListView(ListView):
     template_name = LIST_TEMPLATE
     extra_context = {'title': 'Tags'}
 
-class TagDetailView(DetailView):
+class TagDetailView(BaseDetailView):
     model = Tag
-    template_name = 'tag_detail.html'
+    template_name = DETAIL_TEMPLATE
 
 class TagCreateView(CreateView):
     model = Tag
@@ -162,9 +183,9 @@ class ChefListView(ListView):
     template_name = LIST_TEMPLATE
     extra_context = {'title': 'Chefs'}
 
-class ChefDetailView(DetailView):
+class ChefDetailView(BaseDetailView):
     model = Chef
-    template_name = 'chef_detail.html'
+    template_name = DETAIL_TEMPLATE
 
 class ChefCreateView(CreateView):
     model = Chef
